@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Orchestrator :7002",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-orchestrator",
+      "program": "${workspaceFolder}/VeriPay.Orchestrator/bin/Debug/net8.0/VeriPay.Orchestrator.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/VeriPay.Orchestrator",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Registry :7001",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-registry",
+      "program": "${workspaceFolder}/VeriPay.Registry/bin/Debug/net8.0/VeriPay.Registry.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/VeriPay.Registry",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Both Services",
+      "configurations": ["Orchestrator :7002", "Registry :7001"],
+      "stopAll": true
+    }
+  ]
+}

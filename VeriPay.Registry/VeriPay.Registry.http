@@ -1,0 +1,6 @@
+@VeriPay.Registry_HostAddress = http://localhost:5200
+
+GET {{VeriPay.Registry_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

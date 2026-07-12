@@ -1,0 +1,6 @@
+@VeriPay.Orchestrator_HostAddress = http://localhost:5237
+
+GET {{VeriPay.Orchestrator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
